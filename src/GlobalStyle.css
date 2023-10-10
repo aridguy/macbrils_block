@@ -1,0 +1,31 @@
+.--blog-title{
+    color: lightblue;
+}
+
+/* navbar height */
+/* .height{
+    height: 80px;
+} */
+
+/* .--blog_page_background{
+    background-image: url(https://img.freepik.com/free-vector/abstract-futuristic-wallpaper_23-2148399591.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696809600&semt=ais);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+} */
+
+/* blog post section border all post contents */
+#post {
+    border: 1px solid lightblue;
+    border-radius: 10px;
+}
+
+/* cursor > pointer */
+.cursor{
+    cursor: pointer;
+}
+
+/* .fixedd{
+    position: fixed;
+} */
