@@ -1,31 +1,45 @@
-.--blog-title{
-    color: lightblue;
-}
-
-/* navbar height */
-/* .height{
-    height: 80px;
-} */
-
-/* .--blog_page_background{
-    background-image: url(https://img.freepik.com/free-vector/abstract-futuristic-wallpaper_23-2148399591.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696809600&semt=ais);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: white;
-} */
-
-/* blog post section border all post contents */
-#post {
-    border: 1px solid lightblue;
-    border-radius: 10px;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Work+Sans&display=swap");
 /* cursor > pointer */
-.cursor{
-    cursor: pointer;
+.cursor {
+  cursor: pointer;
 }
 
-/* .fixedd{
-    position: fixed;
+body {
+  font-family: "Inter", sans-serif;
+  font-family: "Work Sans", sans-serif;
+}
+.blogImage {
+  height: 70hv;
+}
+
+b:hover{
+    color: rgb(9, 97, 68);
+}
+
+.read-mores{
+    color: rgb(9, 97, 68);
+}
+.theTitle:hover{
+    color: rgb(27, 212, 151);
+}
+
+.commentss{
+    background-color: rgba(255, 255, 255, 0.192);
+    width: 100%;
+    height: 25em;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 25em;
+    max-height: 253m;
+    padding: 1.4em;
+
+}
+.inputs{
+    height: 4em;
+}
+
+
+/* .wrapper{
+    display: flex;
+    justify-content: space-between;
 } */

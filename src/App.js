@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Home/Home';
-import Create from './Routes/Create/Create';
+import ViewBlogs from './Routes/ViewBlogs/ViewBlogs';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route index element={<Home />} />
-          <Route path="create" element={<Create />} />
+          <Route path="/viewblogs/:id" element={<ViewBlogs />} />
       </Routes>
     </BrowserRouter>
    
