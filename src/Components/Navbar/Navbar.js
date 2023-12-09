@@ -35,8 +35,9 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <div className="d-flex align-items-center">
-             
+            <div className="d-flex align-items-center gap-5">
+             <p className="fs-3 cursor">About</p>
+             <p className="fs-3 cursor">Contact</p>
             </div>
           </div>
         </div>

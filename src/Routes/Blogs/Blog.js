@@ -16,7 +16,7 @@ const Blog = () => {
     const getAllEntries = async () => {
       try {
         await client.getEntries().then((entries) => {
-          console.log(entries);
+          // console.log(entries);
           setBlogPosts(entries);
         });
       } catch (error) {
@@ -26,10 +26,15 @@ const Blog = () => {
     getAllEntries();
   }, [client]);
 
+  const [visible, setVisible] = useState(3);
+  const shoeMoreBlogs = () => {
+    setVisible(visible + 2);
+  };
+
   return (
     <div>
       <section className="pt-5">
-        {blogPosts?.items?.map((post) => (
+        {blogPosts?.items?.slice(0, visible).map((post) => (
           <div className="container mt-5" key={post.sys.id}>
             <div className="row">
               <div className="col-md-2"></div>
@@ -42,37 +47,48 @@ const Blog = () => {
                     alt={post.fields.blogImage.title}
                   />
                   <div className="mt-5">
-                    <h1 onClick={() =>
-                      navigate(`/ViewBlogs/${post.sys.id}`, {
-                        state: { ...post },
-                      })
-                    } className="text-black theTitle cursor">{post.fields.blogTitle} . . .</h1>
+                    <h1
+                      onClick={() =>
+                        navigate(`/ViewBlogs/${post.sys.id}`, {
+                          state: { ...post },
+                        })
+                      }
+                      className="text-black theTitle cursor"
+                    >
+                      {post.fields.blogTitle} . . .
+                    </h1>
                   </div>
                   <div className="comment_blog_title_author_date">
                     <span className="text-black text-muted">
                       <b className="cursor">Leave a Comment</b> /{" "}
-                      <b onClick={() =>
-                        navigate(`/ViewBlogs/${post.sys.id}`, {
-                          state: { ...post },
-                        })
-                      } className="cursor ">
+                      <b
+                        onClick={() =>
+                          navigate(`/ViewBlogs/${post.sys.id}`, {
+                            state: { ...post },
+                          })
+                        }
+                        className="cursor "
+                      >
                         {" "}
                         {post.fields.blogTitle}
-                      </b>{" "} post created by &nbsp;
-                       <b className="cursor">{post.fields.blogAuthor}</b> / {post.fields.createdDate}
+                      </b>{" "}
+                      post created by &nbsp;
+                      <b className="cursor">{post.fields.blogAuthor}</b> /{" "}
+                      {post.fields.createdDate}
                     </span>
                   </div>
                   <div className="summary mt-4">
-                    <span className="fs-4">
-                    {post.fields.blogSummery}
-                    </span>
+                    <span className="fs-4">{post.fields.blogSummery}</span>
                   </div>
                   <div className="read-more mt-4 mb-5">
-                    <span onClick={() =>
-                      navigate(`/ViewBlogs/${post.sys.id}`, {
-                        state: { ...post },
-                      })
-                    } className="cursor fs-4 read-mores">
+                    <span
+                      onClick={() =>
+                        navigate(`/ViewBlogs/${post.sys.id}`, {
+                          state: { ...post },
+                        })
+                      }
+                      className="cursor fs-4 read-mores"
+                    >
                       Read more . . .
                     </span>
                   </div>
@@ -82,6 +98,21 @@ const Blog = () => {
             </div>
           </div>
         ))}
+        <div className="container mt-4">
+          <div className="row">
+            <div className="col-md-2"></div>
+            <div className="col-md-8">
+              <div className="text-center">
+                <button  onClick={shoeMoreBlogs} className="btn btn-primary ">
+                  <span className="spinner-border spinner-border-sm"></span> &nbsp;
+                  Load more . . .
+                </button>
+               
+              </div>
+            </div>
+            <div className="col-md-2"></div>
+          </div>
+        </div>
       </section>
     </div>
   );
