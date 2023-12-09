@@ -1,5 +1,12 @@
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+  const navigate =  useNavigate();
+  const gotoContact = (e) => {
+    navigate('contact');
+  }
+
    
   return (
     <div>
@@ -37,7 +44,7 @@ const Navbar = () => {
 
             <div className="d-flex align-items-center gap-5">
              <p className="fs-3 cursor">About</p>
-             <p className="fs-3 cursor">Contact</p>
+             <p onClick={gotoContact} className="fs-3 cursor">Contact</p>
             </div>
           </div>
         </div>

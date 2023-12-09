@@ -12,6 +12,7 @@ const ViewBlogs = () => {
 
   const [state, handleSubmit] = useForm("xjvqnojq");
   if (state.succeeded) {
+    console.log('successful');
     Swal.fire(
       {
         icon: "success",
@@ -163,7 +164,7 @@ const ViewBlogs = () => {
                               </small>
                             </div>
                             <div className="mt-2">
-                              <button disabled={state.submitting} type="submit" className=" btn btn-primary">
+                              <button disabled={state.submitting} className=" btn btn-primary">
                                 Post Comment{" "}
                               </button>
                             </div>

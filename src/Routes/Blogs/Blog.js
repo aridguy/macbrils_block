@@ -7,9 +7,11 @@ const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
 
   const client = createClient({
+   
     space: "k229fl12qfxv",
-    accessToken: "ZVDQBvonKtpirTMnAn8-gAYau9fiCQSm-mvXyeLHkYE",
+    accessToken: "ZVDQBvonKtpirTMnAn8-gAYau9fiCQSm-mvXyeLHkYE"
   });
+  // console.log(process.env)
   const navigate = useNavigate();
 
   useEffect(() => {

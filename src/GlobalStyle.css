@@ -15,6 +15,9 @@ body {
 b:hover{
     color: rgb(9, 97, 68);
 }
+.black{
+  color: rgb(0, 0, 0);
+}
 
 .read-mores{
     color: rgb(9, 97, 68);
@@ -43,3 +46,8 @@ b:hover{
     display: flex;
     justify-content: space-between;
 } */
+
+/* the contact section of the application */
+.intouch{
+  font-size: 4em;
+}
