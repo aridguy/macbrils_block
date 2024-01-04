@@ -7,12 +7,12 @@ import { useForm, ValidationError } from "@formspree/react";
 import Swal from "sweetalert2";
 
 const ViewBlogs = () => {
-  const gobackhome = useNavigate()
+  const gobackhome = useNavigate();
   const location = useLocation();
 
   const [state, handleSubmit] = useForm("xjvqnojq");
   if (state.succeeded) {
-    console.log('successful');
+    console.log("successful");
     Swal.fire(
       {
         icon: "success",
@@ -23,7 +23,7 @@ const ViewBlogs = () => {
         allowOutsideClick: false,
         confirmButtonColor: "rgb(81, 184, 233)",
         preConfirm: () => {
-         gobackhome('/')
+          gobackhome("/");
         },
         footer: '<a href="/">back to blogs</a>',
         // }, 5000);
@@ -41,7 +41,9 @@ const ViewBlogs = () => {
           <div className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8">
-            <p className="cursor text-black" onClick={ gobackhome('/')}>View Blogs</p>
+              <p className="cursor text-black" onClick={gobackhome("/")}>
+                <a href="/">View Blogs</a>
+              </p>
               <div className="blogPosts">
                 <img
                   className="blogImage"
@@ -89,7 +91,6 @@ const ViewBlogs = () => {
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                  
                     <div className="commentPlace">
                       <p className="fs-3">Leave a Comment</p>
                       <small>Your email address will not be published</small>
@@ -164,7 +165,10 @@ const ViewBlogs = () => {
                               </small>
                             </div>
                             <div className="mt-2">
-                              <button disabled={state.submitting} className=" btn btn-primary">
+                              <button
+                                disabled={state.submitting}
+                                className=" btn btn-primary"
+                              >
                                 Post Comment{" "}
                               </button>
                             </div>

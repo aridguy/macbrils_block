@@ -4,7 +4,7 @@ const Navbar = () => {
 
   const navigate =  useNavigate();
   const gotoContact = (e) => {
-    navigate('contact');
+    navigate('/contact');
   }
 
    

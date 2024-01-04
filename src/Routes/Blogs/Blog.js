@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../GlobalStyle.css";
 import { createClient } from "contentful";
 import { useNavigate } from "react-router-dom";
+import searchBlogPosts from "../../Helpers/Helpers";
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
 
   const client = createClient({
-   
     space: "k229fl12qfxv",
-    accessToken: "ZVDQBvonKtpirTMnAn8-gAYau9fiCQSm-mvXyeLHkYE"
+    accessToken: "ZVDQBvonKtpirTMnAn8-gAYau9fiCQSm-mvXyeLHkYE",
   });
   // console.log(process.env)
   const navigate = useNavigate();
@@ -28,13 +28,40 @@ const Blog = () => {
     getAllEntries();
   }, [client]);
 
+  // slising total blogs perpage setting only 3 blogs visible by default
   const [visible, setVisible] = useState(3);
   const shoeMoreBlogs = () => {
     setVisible(visible + 2);
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    // Use the global search function
+    const filteredPosts = searchBlogPosts(blogPosts, term);
+    setBlogPosts({ items: filteredPosts });
+  };
+
   return (
     <div>
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-4">
+            <div>
+              <input
+                type="text"
+                placeholder="Search blog posts..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="form-control"
+              />
+            </div>
+          </div>
+          <div className="col-md-8"></div>
+        </div>
+      </div>
+
       <section className="pt-5">
         {blogPosts?.items?.slice(0, visible).map((post) => (
           <div className="container mt-5" key={post.sys.id}>
@@ -105,11 +132,10 @@ const Blog = () => {
             <div className="col-md-2"></div>
             <div className="col-md-8">
               <div className="text-center">
-                <button  onClick={shoeMoreBlogs} className="btn btn-primary ">
-                  <span className="spinner-border spinner-border-sm"></span> &nbsp;
-                  Load more . . .
+                <button onClick={shoeMoreBlogs} className="btn btn-primary ">
+                  <span className="spinner-border spinner-border-sm"></span>{" "}
+                  &nbsp; Load more . . .
                 </button>
-               
               </div>
             </div>
             <div className="col-md-2"></div>
